@@ -1,0 +1,46 @@
+{
+  "name": "lannister-pay-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "node -r esm .",
+    "dev": "nodemon -r esm .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lawrecks/lannister-pay-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lawrecks/lannister-pay-api/issues"
+  },
+  "homepage": "https://github.com/lawrecks/lannister-pay-api#readme",
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "body-parser": "^1.19.0",
+    "chai": "^4.3.4",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "mocha": "^9.1.4",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
+    "supertest": "^2.0.1",
+    "winston": "^3.6.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.0",
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^3.4.1"
+  }
+}
