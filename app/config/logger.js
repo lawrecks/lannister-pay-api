@@ -1,3 +1,7 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable max-len */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable object-curly-newline */
 /* eslint-disable max-lines-per-function */
 import winston from 'winston';
 import fs from 'fs';
@@ -9,7 +13,7 @@ const getLogToProcess = (env, fileOpt, consoleOpt) => {
   const array = [];
   array.push(
     new winston.transports.File(fileOpt),
-    new winston.transports.Console(consoleOpt)
+    new winston.transports.Console(consoleOpt),
   );
   return array;
 };
@@ -41,10 +45,12 @@ class Logger {
         format: combine(
           colorize({ all: true }),
           printf(
-            (msg) => `[${new Date(msg.timestamp).toUTCString()}]: ${msg.label} : - ${msg.level
-            }: ${msg.message}`
-          )
-        )
+            (msg) =>
+              `[${new Date(msg.timestamp).toUTCString()}]: ${msg.label} : - ${
+                msg.level
+              }: ${msg.message}`,
+          ),
+        ),
       },
       file: {
         level: 'debug',
@@ -52,8 +58,8 @@ class Logger {
         handleExceptions: true,
         maxsize: 5242880,
         maxFiles: 2000,
-        format: winston.format.json()
-      }
+        format: winston.format.json(),
+      },
     };
     this.debugMode = options.debugMode === true || options.debugMode === undefined;
     this.environment = config.NODE_ENV || 'development';
@@ -72,7 +78,7 @@ class Logger {
     const consoleOpt = { ...console, level };
     const fileOpt = {
       ...file,
-      filename: `${this.logDir}/app.${this.environment}.log`
+      filename: `${this.logDir}/app.${this.environment}.log`,
     };
     const logToProcess = getLogToProcess(this.environment, fileOpt, consoleOpt);
     return logToProcess;
@@ -89,16 +95,16 @@ class Logger {
       format: combine(
         timestamp(),
         label({
-          label: this.label
-        })
+          label: this.label,
+        }),
       ),
       transports: this._getTransports(),
-      exitOnError: false
+      exitOnError: false,
     });
     logger.stream = {
       write(message) {
         logger.info(message);
-      }
+      },
     };
     return logger;
   }

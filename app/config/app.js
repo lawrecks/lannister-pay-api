@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
 import morgan from 'morgan';
