@@ -2,6 +2,7 @@
 import express from 'express';
 import config, { initConfig } from './config';
 import Logger from './config/logger';
+import redisConfig from './config/redis';
 
 const app = express();
 const host = config.HOST;
@@ -13,6 +14,14 @@ global.logger = logger;
 
 initConfig(app);
 
-logger.info(`Server started at ${host}:${port}/api/${apiVersion}/`);
+redisConfig()
+  .then(() => {
+    app.listen(port, () => {
+      logger.info(`Server started at ${host}:${port}/api/${apiVersion}/`);
+    });
+  })
+  .catch((err) => {
+    logger.error('Redis connection failed', err);
+  });
 
 export default app;

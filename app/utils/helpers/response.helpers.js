@@ -1,10 +1,3 @@
-export const Success = (message, code, data = []) => ({
-  status: 'success',
-  message,
-  code,
-  data,
-});
-
 export const Error = (message, code) => ({
   status: 'error',
   message,

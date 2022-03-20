@@ -2,7 +2,7 @@ import rootPath from 'app-root-path';
 import development from './development';
 import test from './test';
 
-const { APP_PORT: PORT, NODE_ENV } = process.env;
+const { PORT, NODE_ENV, REDIS_PORT } = process.env;
 
 const currentEnv = {
   development,
@@ -15,4 +15,5 @@ export default {
   rootPath,
   PORT,
   NODE_ENV,
+  REDIS_PORT,
 };

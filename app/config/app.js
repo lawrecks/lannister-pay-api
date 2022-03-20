@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
@@ -13,7 +14,7 @@ const expressConfig = (app) => {
   logger.info('App is starting...');
   logger.info(`Environment is ${env}`);
 
-  app.use(morgan('combined', { stream: logger.stream }));
+  app.use(morgan('dev', { stream: logger.stream }));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(helmet());
