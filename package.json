@@ -5,8 +5,10 @@
   "main": "app/index.js",
   "scripts": {
     "start": "node -r esm .",
-    "dev": "nodemon -r esm .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run lint && nodemon -r esm .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js ./",
+    "lint-fix": "eslint . --ext .js ./ --fix"
   },
   "repository": {
     "type": "git",
